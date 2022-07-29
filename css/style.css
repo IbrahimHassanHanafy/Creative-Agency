@@ -1,0 +1,1121 @@
+/* 
+1- common styles
+2- general styles
+3- sections
+   3.0 Header section
+   3.1 Home section
+   3.2 About section 
+   3.3 portfolio section 
+   3.4 Service section 
+   3.5 Prices section 
+   3.6 Team section 
+   3.7 Blog Page 
+   3.8 Contact Section 
+   3.9 footer section
+
+
+
+*/
+
+
+/*  1- common styles*/
+/*
+- overlay
+- container (80%)
+-opacity hover
+- section header
+- section padding
+- hover effect 1 (left to right )
+- hover effect 2 ( top to down )
+
+*/
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .7);
+
+}
+
+.hover-opacity {
+    /* transition: .5s;   to all element make problem */
+    transition: opacity .5s;
+    /* do for opacity null */
+}
+
+.hover-opacity:hover {
+    opacity: 0.8;
+
+}
+
+.ltr-effect,
+.tb-effect {
+    position: relative;
+
+}
+
+.ltr-effect::after,
+.tb-effect::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #333;
+    z-index: -1;
+
+}
+
+.ltr-effect::after {
+    width: 0;
+
+    transition: width .5s;
+
+}
+
+.tb-effect::after {
+    height: 0;
+
+    transition: height .5s;
+
+}
+
+.ltr-effect:hover:after {
+    width: 100%;
+
+}
+
+.tb-effect:hover:after {
+    height: 100%;
+
+}
+
+
+/* 2- genera1 css style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*css3 not add border to content but take from content*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+button {
+    /* font-family: 'Varela Round',sans-serif; == next line inherit from body parent */
+    font-family: inherit;
+}
+
+.container {
+    width: 80%;
+    /* height: 100px; */
+    /* background-color: red; */
+    margin: auto;
+    /* to centralize block */
+}
+
+
+.pd-y {
+    padding: 120px 0;
+}
+
+body {
+    /* font */
+    font-family: 'Varela Round', sans-serif;
+}
+
+.clear {
+    clear: both;
+}
+
+a {
+    text-decoration: none;
+}
+
+.section-header {
+    text-align: center;
+
+}
+
+.section-header .section-title {
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+
+}
+
+.section-header .line {
+    height: 3px;
+    display: block;
+    background-color: #6195ff;
+    width: 60px;
+    margin: 0 auto 70px auto;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+
+    background-color: rgba(0, 0, 0, .5);
+    
+    /* position fixed or absolute convert display: block to diasplay: inline-block */
+    z-index: 10;
+
+    /* to controle appearance of element to display of two or more one to appear last */
+
+}
+
+/* .header_content {
+    overflow: hidden;
+    margin: auto;
+    /*if header have content is not appear */
+/* to solve float problem /
+} */
+
+
+/* 3- section styles */
+/* 3.0 Header*/
+/* .header {
+    background-color: rgb(114, 139, 184);
+} */
+
+.header .logo {
+    width: 40%;
+
+    float: left;
+
+
+
+
+}
+
+.header .logo img {
+    width: 20%;
+    margin-top: 15px;
+
+}
+
+.header .nav {
+    width: 60%;
+
+    float: left;
+    list-style: none;
+    text-align: right;
+
+
+
+}
+
+.header .nav>li {
+    display: inline-block;
+    /* width: 75px; */
+    text-align: right;
+}
+
+.header .nav>li>a {
+
+    padding: 30px 15px;
+    display: block;
+    color: #fff;
+    font-size: 15px;
+}
+
+.header .nav>li>a:after,
+.header .nav>li>a:active:after {
+    content: "";
+    display: block;
+    margin-top: 2px;
+    height: 3px;
+    background-color: #6195ff;
+    transition: width .5s;
+}
+
+.header .nav>li>a:after {
+    width: 0;
+}
+
+/* to draw under home first without hover */
+.header .nav>li>a.active::after {
+    width: 100%;
+}
+
+/* to draw after hover */
+.header .nav>li>a:hover::after {
+    width: 100%;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    background-color: #6195ff;
+    width: 150px;
+    text-align: center;
+    left: -50%;
+    top: 70%;
+    list-style: none;
+    /* to hidden dropdown menu */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s;
+}
+
+.dropdown:hover .dropdown-menu {
+    /* to show dropdown menu */
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-menu a {
+
+    color: #fff;
+    display: block;
+    padding: 10px;
+
+}
+
+/* ---------------------------------------------------------------------------- */
+/* Home section*/
+.home {
+    height: 100vh;
+    background-image: url(../images/background/background1.webp);
+    background-size: cover;
+    position: relative;
+
+}
+
+
+
+.home-content {
+
+    position: absolute;
+    width: 65%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+}
+
+.home .title {
+    color: #fff;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+
+}
+
+.home .home-permonth {
+    color: #fff;
+    margin: 20px 0px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    font-weight: normal;
+
+}
+
+.home .btn {
+
+    min-width: 160px;
+    padding: 15px 0;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    /* to make cursor to hand */
+    font-size: 18px;
+
+
+}
+
+.home .btn-start {
+    margin-left: 10px;
+    background-color: #fff;
+
+}
+
+.home .btn-learn {
+    background-color: #6195ff;
+    color: #fff;
+}
+
+/* ------------------------------------------------------------------------------- */
+/* About section */
+
+
+/* .about-content {
+    width: 100%;
+    text-align: center;
+    
+} */
+
+.about-item {
+    width: 30%;
+    float: left;
+    text-align: center;
+    border: 1px solid #e8e8e8;
+    padding: 50px 20px;
+}
+
+.about-item:hover .about-item-title {
+    color: #fff;
+}
+
+.about-content .about-item.mg {
+    margin: 0 5%;
+}
+
+.about-item .icon {
+    color: #6195ff;
+    margin-bottom: 10px;
+}
+
+.about-item-title {
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    transition: color .5s;
+}
+
+.about-item-desc {
+    line-height: 1.6;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.about-item-link {
+    text-transform: capitalize;
+    color: #6195ff;
+}
+
+/* ------------------------------------------------------------------------------- */
+/* portfolio section */
+
+.portfolio {
+    background-color: #f9f9f9;
+}
+
+.portfolio-content {
+    overflow: hidden;
+}
+
+.portfolio-item {
+    width: 32%;
+    float: left;
+    margin-bottom: 30px;
+
+    position: relative;
+
+}
+
+.portfolio-item.mg {
+    margin: 0 2%;
+}
+
+.portfolio-item img {
+    width: 100%;
+    padding: 15px;
+}
+
+.layer-content {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .6);
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s;
+}
+
+.portfolio-item:hover .layer-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.layer-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    width: 80%;
+    transform: translate(-50%, -50%);
+}
+
+.layer-content .category {
+    color: #6195ff;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    transition: top .5s,
+        opacity .5s;
+    transition-delay: .3s;
+}
+
+.layer-content-title {
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 10px;
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    transition: top .5s, opacity .5s;
+    transition-delay: .3s;
+
+}
+
+
+
+.layer-content a {
+    color: #fff;
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    transition: top .5s,
+        opacity .5s;
+    transition-delay: .3s;
+}
+
+.layer-content a i {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    /* the same of width and height of a */
+    background-color: #6195ff;
+}
+
+.portfolio-item:hover .layer-content-title,
+.portfolio-item:hover .layer-content a,
+.portfolio-item:hover .layer-content .category {
+    top: 0;
+    opacity: 1;
+}
+
+/* ------------------------------------------------------------------------- */
+/* offer section */
+.offer-item {
+
+    width: 30%;
+    float: left;
+    height: 150px;
+    border: 1px solid #e8e8e8;
+    padding: 30px 15px 30px 70px;
+    margin-bottom: 20px;
+    position: relative;
+
+}
+
+.offer-item.mg {
+    margin: 0 5%;
+}
+
+.offer-content {
+    overflow: hidden;
+}
+
+.offer-item .icon {
+    position: absolute;
+    left: 15px;
+    top: 30px;
+    color: #6195ff;
+}
+
+.offer-item-title {
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    font-size: 20px;
+    transition: color .5s;
+
+
+}
+
+.offer-item-desc {
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    color: #999;
+}
+
+.offer-item:hover .offer-item-title {
+    color: #fff;
+}
+
+/* ---------------------------------------------------------------------------- */
+/* service section */
+.service {
+    background-color: #f9f9f9;
+}
+
+.service-item {
+    width: 50%;
+    float: left;
+}
+
+.service-item .section-header {
+    text-align: left;
+}
+
+.service-item .section-header .line {
+    margin: 0 0 40px 0;
+}
+
+.service-item-desc {
+    padding-right: 20px;
+    color: #999;
+    line-height: 1.4;
+    font-size: 17px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+
+}
+
+.service-list {
+    list-style: none;
+
+}
+
+.service-list li {
+    margin-bottom: 10px;
+    color: #999;
+}
+
+.service-list li i {
+    border: 1px solid #6195ff;
+    color: #6195ff;
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    border-radius: 50%;
+}
+
+.service-item-img img {
+    width: 100%;
+}
+
+.service-bollets {
+    list-style: none;
+    text-align: center;
+}
+
+.service-bollets li {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: #e8e8e8;
+    margin: 10px 5px;
+    border-radius: 50%;
+}
+
+.service-bollets li.active {
+    background-color: #6195ff;
+}
+
+.service-bollets li:hover {
+    background-color: #6195ff;
+}
+
+/* ----------------------------------------------------------------------------- */
+.number {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-image: url(../images/background/background2.webp);
+    background-size: cover;
+    background-attachment: fixed;
+
+
+}
+
+
+
+.number-items {
+    overflow: hidden;
+    padding: 100px 0;
+
+}
+
+.number-item {
+    text-align: center;
+    float: left;
+    width: 25%;
+
+}
+
+
+.number-item .icon {
+    color: #6195ff;
+    margin-bottom: 15px;
+}
+
+.number-item-title {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.number-item-text {
+
+    text-transform: capitalize;
+    color: #fff;
+}
+
+/* Prices section */
+
+
+
+.pricing-plans {
+    overflow: hidden;
+}
+
+
+
+.pricing-item.mg {
+    margin: 0 5%;
+}
+
+
+.pricing-item {
+    border: 1px solid #999;
+    float: left;
+    width: 30%;
+
+
+    padding: 40px 15px;
+    text-align: center;
+    /* height: 100%; */
+
+}
+
+.pricing-item-text {
+
+    color: #999;
+    text-transform: uppercase;
+    font-size: 17px;
+    transition: color .5s;
+
+
+}
+
+.pricing-item-permonth {
+
+
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    padding: 20px 0;
+    border: 2px solid #184cb4;
+    transition: color .5s;
+    margin: 20px auto;
+
+}
+
+.pricing-item-permonth .doller {
+    font-size: 50px;
+
+
+
+}
+
+.pricing-item-permonth .month {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+
+.pricing-list {
+    list-style: none;
+
+
+}
+
+.pricing-item-purchase {
+    background: none;
+    border: 0;
+    display: block;
+    width: 120px;
+    border: 2px solid #6195ff;
+    padding: 10px;
+    margin: 15px auto 0 auto;
+    color: #6195ff;
+
+    /* text-transform: capitalize;
+    cursor: pointer; */
+}
+
+.pricing-list li {
+    text-transform: capitalize;
+    color: #999;
+    line-height: 1.8;
+
+}
+
+.pricing-item:hover .pricing-item-permonth {
+    color: #fff;
+}
+
+.pricing-item:hover .pricing-item-text {
+    color: #6195ff;
+}
+
+/* testimonail section */
+.testimonail {
+
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-image: url(../images/background/background3.webp);
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.testimonail-content {
+    overflow: hidden;
+    padding: 120px 0;
+    width: 60%;
+    margin: auto;
+}
+
+.testimonail-item {
+    width: 50%;
+    float: left;
+
+
+}
+
+.testimonail-toplayer {
+    padding: 10px 2px 40px 100px;
+
+    position: relative;
+
+}
+
+.testimonail-toplayer img {
+    position: absolute;
+
+    border-radius: 50%;
+    left: 10;
+    top: 10;
+
+}
+
+.testimonail-toplayer h3 {
+    margin: 5px 0;
+
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.testimonail-toplayer span {
+
+    text-transform: uppercase;
+    color: #6195ff;
+}
+
+.testimonail-desc {
+    line-height: 1.5;
+    font-size: 17px;
+    color: #fff;
+    margin: 0px 10px;
+
+}
+
+/* team section */
+
+
+.team-content {
+    overflow: hidden;
+}
+
+.team-item {
+    width: 30%;
+    float: left;
+    background: #e8e8e8;
+    padding: 40px 10px;
+    text-align: center;
+}
+
+.team-item .team-img {
+    width: 90%;
+    margin: auto;
+    position: relative;
+}
+
+.team-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.team-overlay a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: #6195ff;
+    color: #fff;
+
+    margin-left: auto;
+    /* علشان ييجي ناحيه اليمين عنصر بلوك */
+}
+
+.team-overlay a i {
+    line-height: 40px;
+}
+
+.team-item .team-img img {
+    width: 100%;
+    margin: auto;
+}
+
+.team-info-title {
+    color: #222;
+    text-transform: capitalize;
+    margin: 10px 0;
+}
+
+.team-info-text {
+    color: #999;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: color .5s;
+}
+
+.team-item:hover .team-overlay {
+    visibility: visible;
+    opacity: 1;
+}
+
+.team-item.tb-effect {
+    z-index: 1;
+    /* to show effect because not appear from image */
+}
+
+.team-item:hover .team-info-title {
+    color: #fff;
+}
+
+.team-item:hover .team-info-text {
+    color: #6195ff;
+}
+
+.team-item.mg {
+    margin: 0 5%;
+}
+
+/* Blog Page */
+.blog-content {
+    overflow: hidden;
+}
+
+.blog-item {
+    width: 30%;
+    background-color: #fff;
+    float: left;
+}
+
+.blog-item.mg {
+    margin: 0 5%;
+}
+
+.blog-item-img img {
+
+    width: 100%;
+}
+
+.blog-info {
+    padding: 20px;
+}
+
+.blog-list {
+    list-style: none;
+    margin: 10px 0;
+}
+
+.blog-list li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.blog-list li i {
+    color: #6195ff;
+}
+
+.blog-title {
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.blog-desc {
+    color: #999;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.blog-link {
+    color: #6195ff;
+}
+
+
+/* Contact Section */
+/* .contact {
+    position: relative;
+} */
+
+.contact-content {
+    width: 70%;
+    margin: auto;
+    overflow: hidden;
+
+
+}
+
+.contact-item {
+
+    width: 100%;
+    padding: 15px 0;
+
+}
+
+.contact-item .contact-desc {
+    display: inline;
+    text-align: center;
+    line-height: 1.5;
+
+}
+
+.contact-item .contact-desc .contact-ways {
+    display: inline-block;
+    width: 30%;
+    list-style: none;
+}
+
+.contact-item .contact-desc .contact-ways i {
+    color: #6195ff;
+}
+
+.contact-item .contact-desc li.mg {
+    margin: 0 4%;
+}
+
+.contact-item .contact-desc .contact-ways .contact-title {
+    text-transform: capitalize;
+    color: #222;
+    font-weight: bold;
+}
+
+.contact-item .contact-desc .contact-ways .contact-text {
+    font-size: 12px;
+    color: #999;
+}
+
+/* .contact-button {
+    text-align: center;
+    height: 40px;
+
+} */
+button.contact-send {
+
+
+    display: block;
+    margin: auto;
+    min-width: 130px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+    color: #6195ff;
+    height: 40px;
+    text-transform: capitalize;
+}
+
+.contact-info {
+    width: 60%;
+    margin: auto;
+
+
+
+}
+
+
+
+
+.contact-info .name,
+.contact-info .email {
+    float: left;
+    display: block;
+    width: 50%;
+    height: 50px;
+    margin: 10px 0;
+
+
+}
+
+.contact-info .subject,
+.contact-info .message {
+    width: 100%;
+    display: block;
+    height: 60px;
+    margin: 10px 0;
+
+}
+
+/* footer section */
+.footer {
+    background-color: #333;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.footer-links {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.footer-links li {
+    display: inline-block;
+}
+
+.footer-links li a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #6195ff;
+    color: #fff;
+    margin: 0 5px;
+    border-radius: 50%;
+}
+.footer-links li a:hover{
+    background-color: #184cb4;
+}
+
+.footer-links li a i {
+    line-height: 50px;
+}
+
+.footer .copyright {
+    color: #999;
+    text-transform: uppercase;
+    font-size: 16px;
+}
